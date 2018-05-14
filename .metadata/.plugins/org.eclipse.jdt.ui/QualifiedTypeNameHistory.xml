@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="com.assessment.backendConsoleApp.controller.ITransactionController"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.util.regex.Matcher"/>
+<fullyQualifiedTypeName name="com.google.gson.JsonParser"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.security.SecurityProperties.User"/>
+<fullyQualifiedTypeName name="org.apache.commons.lang.StringUtils"/>
+<fullyQualifiedTypeName name="com.assessment.backendConsoleApp.api.GenerateHashTransactionId"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="java.net.URL"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.assessment.backendConsoleApp.model.User"/>
+</qualifiedTypeNameHistroy>

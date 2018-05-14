@@ -1,0 +1,4 @@
+{"user_id":100,"transaction_id":"358798a2962e4447f78175241d758044205f6330","amount":4.23,"description":"Joes Tacos","date":"Dec 30, 2018 12:00:00 AM"}
+{"user_id":100,"transaction_id":"092d8478a4fff88a21e5020701b3f553261a562c","amount":1.23,"description":"Joes Tacos","date":"Dec 30, 2018 12:00:00 AM"}
+{"user_id":100,"transaction_id":"268a3b851e9b220325fdd4fef96195864cf80d45","amount":5.23,"description":"Joes Tacos","date":"Dec 30, 2018 12:00:00 AM"}
+{"user_id":100,"transaction_id":"5abde4f2a54e60ad2b0edddf92db24d6f2d48799","amount":6.23,"description":"Joes Tacos","date":"Dec 30, 2018 12:00:00 AM"}

@@ -1,0 +1,30 @@
+package com.assessment.backendConsoleApp.controller.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.assessment.backendConsoleApp.controller.ITransactionController;
+import com.assessment.backendConsoleApp.service.impl.TransactionServiceImpl;
+
+@Controller
+public class TransactionControllerImpl implements ITransactionController{
+	
+	@Autowired
+	private TransactionServiceImpl transactionService;
+
+	@Override
+	public void driveTransactionAction(String request) {
+		
+		if(petition.contains("add")) {
+			transactionService.addTransaction(request);
+		}else if(petition.contains("show")) {
+			transactionService.showTransaction(request);
+		}else if(petition.contains("list")) {
+			transactionService.listTransactions(request);
+		}else if(petition.contains("sum")) {
+			transactionService.sumTransactions(request);
+		}
+		
+	}
+
+}

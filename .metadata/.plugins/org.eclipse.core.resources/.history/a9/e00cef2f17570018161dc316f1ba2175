@@ -1,0 +1,13 @@
+package com.assessment.backendConsoleApp.persistence;
+
+import java.io.IOException;
+
+import com.assessment.backendConsoleApp.model.Transaction;
+
+public interface IPersistence {
+	
+	public void save(Transaction transaction) throws IOException;
+	
+	
+	
+}

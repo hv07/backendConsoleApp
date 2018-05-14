@@ -1,0 +1,5 @@
+package com.assessment.backendConsoleApp.api;
+
+public class GenerateHashTransactionId {
+
+}

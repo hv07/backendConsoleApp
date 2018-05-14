@@ -1,0 +1,39 @@
+package com.assessment.backendConsoleApp.controller.impl;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.assessment.backendConsoleApp.controller.ITransactionController;
+import com.assessment.backendConsoleApp.service.impl.TransactionServiceImpl;
+
+@Controller
+public class TransactionControllerImpl implements ITransactionController {
+
+	@Autowired
+	private TransactionServiceImpl transactionService;
+
+	@Override
+	public void driveTransactionAction(String request) {
+
+		int begin = request.indexOf("{", request.indexOf("{") + 1);
+        int end = request.lastIndexOf("}", request.lastIndexOf("}") - 1);
+		if (matcher.find()) {
+			System.out.println(matcher.group(1));
+			if(request.contains("add")) {
+				transactionService.addTransaction(request);
+			}else if(request.contains("show")) {
+				transactionService.showTransaction(request);
+			}else if(request.contains("list")) {
+				transactionService.listTransactions(request);
+			}else if(request.contains("sum")) {
+				transactionService.sumTransactions(request);
+			}
+		}else {
+			System.out.println("There is not Json request");
+		}
+	}
+
+}

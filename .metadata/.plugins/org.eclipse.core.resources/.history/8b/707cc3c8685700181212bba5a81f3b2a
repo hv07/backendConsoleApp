@@ -1,0 +1,16 @@
+package com.assessment.backendConsoleApp.model;
+
+import java.io.Serializable;
+import java.util.List;
+
+public class User implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4164767467056942790L;
+	
+	private int userId;
+	private BigDecimal sumTransaction;
+	
+}

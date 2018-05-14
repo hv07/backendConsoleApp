@@ -1,0 +1,11 @@
+package com.assessment.backendConsoleApp.persistence;
+
+import java.io.IOException;
+
+public interface IPersistence {
+	
+	public void save(String transaction) throws IOException, ClassNotFoundException;
+	
+	
+	
+}

@@ -1,0 +1,60 @@
+package com.assessment.backendConsoleApp.api;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.zip.CRC32;
+import java.util.zip.Checksum;
+
+public class GenerateHashTransactionId {
+
+	private String request;
+
+	public String generateHash(String jsonRequest) {
+		request = jsonRequest;
+		String hash = "";
+		byte[] digest = null;
+		byte[] buffer = jsonRequest.getBytes();
+		
+		try {
+            // Instancio un objeto MessageDigest con el algoritmo apropiado
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            // Reseteo el digest que pueda existir en el objeto
+            md.reset();
+            // Envio el buffer el mensaje a encriptar
+            md.update(buffer);
+            // Obtengo el Digest del Message
+            digest = md.digest();
+            // Obtengo la cadena del hash en valores hexadecimales
+            hash = toHexadecimal(digest);
+         } catch (NoSuchAlgorithmException e) {
+            // Controlo el mensaje de cualquier excepcion generada
+            e.printStackTrace();
+         }
+         break;
+
+	}
+
+	private String toHexadecimal(byte[] digest) {
+		String hash = "";
+		for (byte aux : digest) {
+			int b = aux & 0xff; 
+			if (Integer.toHexString(b).length() == 1)
+				hash += "0";
+			hash += Integer.toHexString(b);
+		}
+		return hash;
+	}
+
+	private String getCRC32() {
+		String hash = null;
+		byte[] bytes = request.getBytes();
+
+		Checksum crc32 = new CRC32();
+		
+		crc32.reset();
+
+		crc32.update(bytes, 0, bytes.length);
+		hash = Long.toHexString(crc32.getValue()).toUpperCase();
+		return hash;
+	}
+}

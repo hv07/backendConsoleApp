@@ -1,0 +1,41 @@
+package com.assessment.backendConsoleApp.persistence.impl;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import org.springframework.stereotype.Service;
+
+import com.assessment.backendConsoleApp.persistence.IPersistence;
+
+@Service
+public class PersistenceImpl implements IPersistence {
+
+	@Override
+	public void save(String transaction) throws IOException, ClassNotFoundException {
+
+		try {
+			String path = "C:\\Users\\Harif Velarde\\eclipse-workspace\\backendConsoleApp\\backendConsoleApp\\src\\main\\resources\\transactions.txt";
+			File file = new File(path);
+			BufferedWriter bw;
+			if (file.exists()) {
+				bw = new BufferedWriter(new FileWriter(file));
+				bw.write(transaction + "\n");
+				bw.close();
+			} else {
+				bw = new BufferedWriter(new FileWriter(file, true));
+				bw.write(transaction);
+				bw.newLine();
+				bw.close();
+
+			}
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

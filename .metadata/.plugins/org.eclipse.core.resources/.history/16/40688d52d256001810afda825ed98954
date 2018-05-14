@@ -1,0 +1,5 @@
+package com.assessment.backendConsoleApp.model;
+
+public class User {
+
+}

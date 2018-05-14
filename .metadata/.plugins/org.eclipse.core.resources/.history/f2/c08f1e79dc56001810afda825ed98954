@@ -1,0 +1,16 @@
+package com.assessment.backendConsoleApp.controller.impl;
+
+import org.springframework.stereotype.Controller;
+
+import com.assessment.backendConsoleApp.controller.ITransactionController;
+
+@Controller
+public class TransactionControllerImpl implements ITransactionController{
+
+	@Override
+	public void driveTransactionAction(String petition) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

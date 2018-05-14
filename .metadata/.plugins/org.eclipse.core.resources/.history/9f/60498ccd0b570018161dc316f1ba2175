@@ -1,0 +1,10 @@
+package com.assessment.backendConsoleApp.api;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.zip.CRC32;
+import java.util.zip.Checksum;
+
+public class GenerateHashTransactionId {
+
+}

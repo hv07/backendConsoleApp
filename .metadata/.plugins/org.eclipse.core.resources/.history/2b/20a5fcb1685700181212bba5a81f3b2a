@@ -1,0 +1,76 @@
+package com.assessment.backendConsoleApp.model;
+
+import java.io.Serializable;
+import java.util.List;
+
+public class User implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4164767467056942790L;
+	
+	private int userId;
+	private Transaction transaction;
+	private List<Transaction> transactions;
+	
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	public Transaction getTransaction() {
+		return transaction;
+	}
+	public void setTransaction(Transaction transaction) {
+		this.transaction = transaction;
+	}
+	public List<Transaction> getTransactions() {
+		return transactions;
+	}
+	public void setTransactions(List<Transaction> transactions) {
+		this.transactions = transactions;
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((transaction == null) ? 0 : transaction.hashCode());
+		result = prime * result + ((transactions == null) ? 0 : transactions.hashCode());
+		result = prime * result + userId;
+		return result;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		if (transaction == null) {
+			if (other.transaction != null)
+				return false;
+		} else if (!transaction.equals(other.transaction))
+			return false;
+		if (transactions == null) {
+			if (other.transactions != null)
+				return false;
+		} else if (!transactions.equals(other.transactions))
+			return false;
+		if (userId != other.userId)
+			return false;
+		return true;
+	}
+	
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", transaction=" + transaction + ", transactions=" + transactions + "]";
+	}
+	
+	
+}

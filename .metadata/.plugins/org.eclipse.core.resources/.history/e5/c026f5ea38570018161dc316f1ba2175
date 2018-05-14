@@ -1,0 +1,91 @@
+package com.assessment.backendConsoleApp.persistence.impl;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.stream.Stream;
+
+import org.springframework.stereotype.Service;
+
+import com.assessment.backendConsoleApp.model.Transaction;
+import com.assessment.backendConsoleApp.persistence.IPersistence;
+import com.google.gson.Gson;
+
+@Service
+public class PersistenceImpl implements IPersistence {
+
+	private String path = "C:\\Users\\Harif Velarde\\eclipse-workspace\\backendConsoleApp\\backendConsoleApp\\src\\main\\resources\\transactions.txt";	
+	
+	@Override
+	public void save(String transaction) throws IOException, ClassNotFoundException {
+
+		try {
+			
+			File file = new File(path);
+			BufferedWriter bw;
+			if (file.exists()) {
+				bw = new BufferedWriter(new FileWriter(file, true));
+				bw.write(transaction);
+				bw.newLine();
+				bw.close();
+			} else {
+				bw = new BufferedWriter(new FileWriter(file));
+				bw.write(transaction);
+				bw.close();
+			}
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	@Override
+	public void getTransactionsByUserId(String userId) throws IOException, ClassNotFoundException {
+		ArrayList<String> transactions = new ArrayList<String>();
+		Path pathTransactions = Paths.get(path);
+		Stream<String> stream = Files.lines(pathTransactions);
+		Stream<String> tmp = stream.filter(s -> s.contains(userId));
+		tmp.forEach(transactions::add);
+		if(transactions.size() > 1) {
+			for(String transaction : transactions) {
+				System.out.println(transaction);
+			}
+		}else {
+			System.out.println("No matches");
+		}
+	}
+
+	@Override
+	public void getTransactionsByUserIdTransactionId(String userId, String transactionId)
+			throws IOException, ClassNotFoundException {
+		ArrayList<String> transactions = new ArrayList<String>();
+		Transaction result;
+		Path pathTransactions = Paths.get(path);
+		Stream<String> stream = Files.lines(pathTransactions);
+		Stream<String> tmp = stream.filter(s -> s.contains(userId));
+		
+		tmp.forEach(transactions::add);
+		if(transactions.size() > 1) {
+			for(String transaction : transactions) {
+				result = new Gson().fromJson(transaction, Transaction.class);
+				if(result.getTransaction_id().equals(transactionId)) {
+					System.out.println(transaction);
+				}else {
+					System.out.println("Transaction not found");
+				}
+					
+			}
+		}else {
+			System.out.println("Transaction not found");
+		}
+		
+	}
+
+}

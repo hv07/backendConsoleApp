@@ -1,0 +1,9 @@
+package com.assessment.backendConsoleApp.persistence;
+
+import com.assessment.backendConsoleApp.model.Transaction;
+
+public interface IPersistence {
+	
+	public void save(Transaction transaction);
+	
+}
