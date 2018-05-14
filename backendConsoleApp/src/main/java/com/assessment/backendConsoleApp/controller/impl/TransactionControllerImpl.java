@@ -14,6 +14,7 @@ public class TransactionControllerImpl implements ITransactionController {
 
 	@Override
 	public void driveTransactionAction(String request) {
+
 		try {
 			if (request.contains("add")) {
 				if (request.contains("{") || request.contains("}")) {
@@ -37,7 +38,7 @@ public class TransactionControllerImpl implements ITransactionController {
 
 			}
 		} catch (Exception e) {
-			System.out.println(e)
+			e.printStackTrace();
 		}
 	}
 
