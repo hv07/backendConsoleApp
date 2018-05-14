@@ -37,7 +37,7 @@ public class TransactionControllerImpl implements ITransactionController {
 
 			}
 		} catch (Exception e) {
-			System.err.print(e)
+			System.out.println(e)
 		}
 	}
 
